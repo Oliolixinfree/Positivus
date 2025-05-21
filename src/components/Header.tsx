@@ -18,7 +18,7 @@ const Header = () => {
                             content creation.
                         </p>
                         <Button
-                            className="bg-dark text-white"
+                            className="bg-dark text-white hover:text-green"
                             onClick={() => {}}
                         >
                             Book a consultation

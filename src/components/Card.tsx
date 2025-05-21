@@ -9,9 +9,7 @@ interface ICard {
 
 const Card: React.FC<ICard> = ({ children, className, bg, shadow }) => {
     return (
-        <div
-            className={`rounded-[45px] w-[600px] ${shadow} ${bg} ${className}`}
-        >
+        <div className={`rounded-[45px]  ${shadow} ${bg} ${className}`}>
             {children}
         </div>
     )

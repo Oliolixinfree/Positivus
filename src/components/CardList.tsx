@@ -17,7 +17,7 @@ const CardList = () => {
                     <Card
                         shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
                         bg="bg-gray"
-                        className="p-[50px] border-[1px] border-dark"
+                        className="p-[50px] border-[1px] border-dark w-[600px]"
                     >
                         <div className="flex justify-between items-center">
                             <div className="flex flex-col gap-[93px]">
@@ -48,7 +48,7 @@ const CardList = () => {
                     <Card
                         shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
                         bg="bg-green"
-                        className="p-[50px] border-[1px] border-dark"
+                        className="p-[50px] border-[1px] border-dark w-[600px]"
                     >
                         <div className="flex justify-between">
                             <div className="flex flex-col gap-[93px]">
@@ -79,7 +79,7 @@ const CardList = () => {
                     <Card
                         shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
                         bg="bg-dark"
-                        className="p-[50px] border-[1px] border-dark"
+                        className="p-[50px] border-[1px] border-dark w-[600px]"
                     >
                         <div className="flex justify-between">
                             <div className="flex flex-col gap-[93px]">
@@ -110,7 +110,7 @@ const CardList = () => {
                     <Card
                         shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
                         bg="bg-gray"
-                        className="p-[50px] border-[1px] border-dark"
+                        className="p-[50px] border-[1px] border-dark w-[600px]"
                     >
                         <div className="flex justify-between items-center">
                             <div className="flex flex-col gap-[93px]">
@@ -141,7 +141,7 @@ const CardList = () => {
                     <Card
                         shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
                         bg="bg-green"
-                        className="p-[50px] border-[1px] border-dark"
+                        className="p-[50px] border-[1px] border-dark w-[600px]"
                     >
                         <div className="flex justify-between">
                             <div className="flex flex-col gap-[93px]">
@@ -172,7 +172,7 @@ const CardList = () => {
                     <Card
                         shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
                         bg="bg-dark"
-                        className="p-[50px] border-[1px] border-dark"
+                        className="p-[50px] border-[1px] border-dark w-[600px]"
                     >
                         <div className="flex justify-between">
                             <div className="flex flex-col gap-[93px]">
