@@ -10,9 +10,11 @@ import Button from '../components/UI/Button'
 import Tag from '../components/UI/Tag'
 import ArrowLink from '../components/UI/ArrowLink'
 import { WorkingProcessCard } from '../components/WorkingProcessCard'
-import mask from '../assets/images/MaskEmployee.svg'
-import emp1 from '../assets/images/emp1.png'
 import EmployeesCard from '../components/EmployeesCard'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper/modules'
+import './Home.css'
+import { useRef, useState } from 'react'
 
 const cards = [
     {
@@ -103,8 +105,49 @@ const employeesData = [
             '2+ years of experience in writing and editing. Skilled in creating compelling, SEO-optimized content for various industries',
     },
 ]
+const reviews = [
+    {
+        id: 1,
+        text: `"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."`,
+        name: 'John Smith',
+        role: 'Marketing Director at XYZ Corp',
+    },
+    {
+        id: 2,
+        text: `"Positivus completely transformed our digital marketing strategy. Their data-driven approach helped us double our conversion rates in just six months. The team is incredibly knowledgeable and always goes above and beyond to deliver results."`,
+        name: 'Sarah Johnson',
+        role: 'CEO at Bright Solutions',
+    },
+    {
+        id: 3,
+        text: `"Working with Positivus has been a game-changer for our e-commerce business. Their SEO expertise took us from page 4 to the top of Google's search results. The ROI has been phenomenal - we've seen a 300% increase in organic traffic!"`,
+        name: 'Michael Chen',
+        role: 'Founder of UrbanTrend',
+    },
+    {
+        id: 4,
+        text: `"The social media campaign Positivus created for us went viral and brought in record-breaking sales. Their creative team understands exactly how to engage our target audience. We've signed a long-term contract because the results speak for themselves."`,
+        name: 'Emily Rodriguez',
+        role: 'Brand Manager at Nova Cosmetics',
+    },
+    {
+        id: 5,
+        text: `"As a startup, we needed maximum impact with a limited budget. Positivus delivered exactly that - their PPC campaigns have the lowest CPA in the industry. They've become an extension of our own marketing team."`,
+        name: 'David Kim',
+        role: 'CMO at TechVenture',
+    },
+    {
+        id: 6,
+        text: `"What impressed me most about Positivus was their transparency. Unlike other agencies, they provide clear metrics and honest assessments. Thanks to their content marketing strategy, we've established ourselves as thought leaders in our niche."`,
+        name: 'Olivia Brown',
+        role: 'Director of Communications at GreenLife',
+    },
+]
 
 const Home = () => {
+    const swiperRef = useRef<any>(null)
+    const [activeIndex, setActiveIndex] = useState<number>(0)
+
     return (
         <>
             <Header />
@@ -182,7 +225,7 @@ const Home = () => {
                                 </p>
                                 <div className="flex items-center gap-3.5 text-xl text-green mt-5">
                                     Learn more
-                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark -rotate-30" />
                                 </div>
                             </div>
                             <div className="flex">
@@ -197,7 +240,7 @@ const Home = () => {
                                 </p>
                                 <div className="flex items-center gap-3.5 text-xl text-green mt-5">
                                     Learn more
-                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark -rotate-30" />
                                 </div>
                             </div>
                             <div className="flex">
@@ -212,7 +255,7 @@ const Home = () => {
                                 </p>
                                 <div className="flex items-center gap-3.5 text-xl text-green mt-5">
                                     Learn more
-                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark -rotate-30" />
                                 </div>
                             </div>
                         </div>
@@ -267,211 +310,219 @@ const Home = () => {
                                 position={e.position}
                             />
                         ))}
-                        {/* <Card
-                            className="border-[1px] border-dark w-fit py-10 px-9"
-                            bg="bg-gray"
-                            shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
-                        >
-                            <div className="flex gap-6.5">
-                                <div className="w-[100px] h-[100px] relative shrink-0">
-                                    <svg
-                                        className="absolute z-0 top-2 left-2 "
-                                        width="97.822266"
-                                        height="97.823242"
-                                        viewBox="0 0 97.8223 97.8232"
-                                    >
-                                        <path
-                                            id="Vector"
-                                            d="M83.8 48.91C116.64 86.32 86.32 116.64 48.91 83.8C11.5 116.64 -18.83 86.32 14.01 48.91C-18.83 11.5 11.5 -18.83 48.91 14.01C86.32 -18.83 116.64 11.5 83.8 48.91Z"
-                                            fill="#231F20"
-                                            fill-opacity="1.000000"
-                                            fill-rule="nonzero"
-                                        />
-                                    </svg>
-                                    <div
-                                        className="absolute top-0 left-0   
-                                    mask-[url(./assets/images/MaskEmployee.svg)] mask-contain mask-no-repeat
-                                    bg-[url('./assets/images/emp1.png')] w-[100px] h-[100px]  bg-no-repeat bg-cover
-"
-                                    />
-                                </div>
-                                <div className="flex flex-col gap-5 w-full">
-                                    <div className="flex justify-end">
-                                        <div
-                                            className="flex items-center justify-center cursor-pointer bg-dark rounded-full 
-                                        w-9 h-9 hover:fill-green transition-all duration-300"
-                                        >
-                                            <svg
-                                                width="17.000000"
-                                                height="17.000000"
-                                                viewBox="0 0 17 17"
-                                            >
-                                                <path
-                                                    id="linkedin"
-                                                    d="M2.06 4.09C0.9 4.09 0 3.18 0 2.07C0 0.95 0.9 0 2.06 0C3.17 0 4.07 0.95 4.07 2.07C4.07 3.18 3.17 4.09 2.06 4.09ZM13.45 17L17 17L17 10.78C17 7.75 16.31 5.36 12.76 5.36C11.06 5.36 9.9 6.32 9.42 7.22L9.37 7.22L9.37 5.68L6.03 5.68L6.03 17L9.53 17L9.53 11.42C9.53 9.93 9.79 8.5 11.65 8.5C13.45 8.5 13.45 10.2 13.45 11.47L13.45 17ZM3.81 17L0.31 17L0.31 5.68L3.81 5.68L3.81 17Z"
-                                                    fill="#B9FF66"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <Heading
-                                            fw="font-medium"
-                                            size="s"
-                                            className="leading-6"
-                                        >
-                                            John Smith
-                                        </Heading>
-                                        <div className="text-lg ">
-                                            CEO and Founder
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr className="my-7 border-dark" />
-                            <p className="text-lg leading-6">
-                                10+ years of experience in digital marketing.
-                                Expertise in SEO, PPC, and content strategy
-                            </p>
-                        </Card>
-                        <Card
-                            className="border-[1px] border-dark w-fit  py-10 px-9"
-                            bg="bg-gray"
-                            shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
-                        >
-                            <div className="relative flex gap-8">
-                                <div className="w-[100px] h-[100px]">
-                                    <div
-                                        // className="absolute top-10 left-9 z-10
-                                        className="absolute top-0 left-0 z-10  
-                                    mask-[url(./assets/images/MaskEmployee.svg)] mask-center mask-cover
-                                    bg-[url('./assets/images/emp1.png')] w-[100px] h-[100px] bg-cover"
-                                    />
-                                    <svg
-                                        // className="absolute top-12 left-12"
-                                        className="absolute top-2 left-3"
-                                        width="97.822266"
-                                        height="97.823242"
-                                        viewBox="0 0 97.8223 97.8232"
-                                    >
-                                        <path
-                                            id="Vector"
-                                            d="M83.8 48.91C116.64 86.32 86.32 116.64 48.91 83.8C11.5 116.64 -18.83 86.32 14.01 48.91C-18.83 11.5 11.5 -18.83 48.91 14.01C86.32 -18.83 116.64 11.5 83.8 48.91Z"
-                                            fill="#231F20"
-                                            fill-opacity="1.000000"
-                                            fill-rule="nonzero"
-                                        />
-                                    </svg>
-                                </div>
-                                <div className="flex flex-col gap-5 w-full">
-                                    <div className="flex justify-end">
-                                        <div
-                                            className="flex items-center justify-center cursor-pointer bg-dark rounded-full 
-                                        w-9 h-9 hover:fill-green transition-all duration-300"
-                                        >
-                                            <svg
-                                                width="17.000000"
-                                                height="17.000000"
-                                                viewBox="0 0 17 17"
-                                            >
-                                                <path
-                                                    id="linkedin"
-                                                    d="M2.06 4.09C0.9 4.09 0 3.18 0 2.07C0 0.95 0.9 0 2.06 0C3.17 0 4.07 0.95 4.07 2.07C4.07 3.18 3.17 4.09 2.06 4.09ZM13.45 17L17 17L17 10.78C17 7.75 16.31 5.36 12.76 5.36C11.06 5.36 9.9 6.32 9.42 7.22L9.37 7.22L9.37 5.68L6.03 5.68L6.03 17L9.53 17L9.53 11.42C9.53 9.93 9.79 8.5 11.65 8.5C13.45 8.5 13.45 10.2 13.45 11.47L13.45 17ZM3.81 17L0.31 17L0.31 5.68L3.81 5.68L3.81 17Z"
-                                                    fill="#B9FF66"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <Heading
-                                            fw="font-medium"
-                                            size="s"
-                                            className="leading-6"
-                                        >
-                                            John Smith
-                                        </Heading>
-                                        <div className="text-lg ">
-                                            CEO and Founder
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr className="my-7 border-dark" />
-                            <p className="text-lg leading-6">
-                                10+ years of experience in digital marketing.
-                                Expertise in SEO, PPC, and content strategy
-                            </p>
-                        </Card>
-                        <Card
-                            className="border-[1px] border-dark w-fit  py-10 px-9"
-                            bg="bg-gray"
-                            shadow="shadow-[0px_5px_0px_0px_rgb(25,26,35)]"
-                        >
-                            <div className="relative flex gap-8">
-                                <div className="w-[100px] h-[100px]">
-                                    <div
-                                        // className="absolute top-10 left-9 z-10
-                                        className="absolute top-0 left-0 z-10  
-                                    mask-[url(./assets/images/MaskEmployee.svg)] mask-center mask-cover
-                                    bg-[url('./assets/images/emp1.png')] w-[100px] h-[100px] bg-cover"
-                                    />
-                                    <svg
-                                        // className="absolute top-12 left-12"
-                                        className="absolute top-2 left-3"
-                                        width="97.822266"
-                                        height="97.823242"
-                                        viewBox="0 0 97.8223 97.8232"
-                                    >
-                                        <path
-                                            id="Vector"
-                                            d="M83.8 48.91C116.64 86.32 86.32 116.64 48.91 83.8C11.5 116.64 -18.83 86.32 14.01 48.91C-18.83 11.5 11.5 -18.83 48.91 14.01C86.32 -18.83 116.64 11.5 83.8 48.91Z"
-                                            fill="#231F20"
-                                            fill-opacity="1.000000"
-                                            fill-rule="nonzero"
-                                        />
-                                    </svg>
-                                </div>
-                                <div className="flex flex-col gap-5 w-full">
-                                    <div className="flex justify-end">
-                                        <div
-                                            className="flex items-center justify-center cursor-pointer bg-dark rounded-full 
-                                        w-9 h-9 hover:fill-green transition-all duration-300"
-                                        >
-                                            <svg
-                                                width="17.000000"
-                                                height="17.000000"
-                                                viewBox="0 0 17 17"
-                                            >
-                                                <path
-                                                    id="linkedin"
-                                                    d="M2.06 4.09C0.9 4.09 0 3.18 0 2.07C0 0.95 0.9 0 2.06 0C3.17 0 4.07 0.95 4.07 2.07C4.07 3.18 3.17 4.09 2.06 4.09ZM13.45 17L17 17L17 10.78C17 7.75 16.31 5.36 12.76 5.36C11.06 5.36 9.9 6.32 9.42 7.22L9.37 7.22L9.37 5.68L6.03 5.68L6.03 17L9.53 17L9.53 11.42C9.53 9.93 9.79 8.5 11.65 8.5C13.45 8.5 13.45 10.2 13.45 11.47L13.45 17ZM3.81 17L0.31 17L0.31 5.68L3.81 5.68L3.81 17Z"
-                                                    fill="#B9FF66"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <Heading
-                                            fw="font-medium"
-                                            size="s"
-                                            className="leading-6"
-                                        >
-                                            John Smith
-                                        </Heading>
-                                        <div className="text-lg ">
-                                            CEO and Founder
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr className="my-7 border-dark" />
-                            <p className="text-lg leading-6">
-                                10+ years of experience in digital marketing.
-                                Expertise in SEO, PPC, and content strategy
-                            </p>
-                        </Card> */}
+                        <div className="col-start-1 col-end-4 flex justify-end">
+                            <Button
+                                className="bg-dark text-white hover:text-green w-xs"
+                                onClick={() => {}}
+                            >
+                                See all team
+                            </Button>
+                        </div>
                     </div>
                 </Wrapper>
+            </div>
+            <div className="mt-[100px]">
+                <TagDescription>
+                    <div className="flex gap-12">
+                        <Tag tag="Testimonials" />
+                        <p className="w-xl text-lg leading-[23px]">
+                            Hear from Our Satisfied Clients: Read Our
+                            Testimonials to Learn More about Our Digital
+                            Marketing Services
+                        </p>
+                    </div>
+                </TagDescription>
+            </div>
+            <div className="mt-[80px]">
+                <Wrapper>
+                    {/* <Card bg="bg-dark" className="pt-20 pb-16">
+                        <div
+                            className="flex justify-self-center w-fit h-fit  text-white 
+                                p-[52px] bg-[url(./assets/images/Bubble.svg)] bg-clip-border bg-no-repeat"
+                        >
+                            <p className="text-lg w-[500px]">
+                                "We have been working with Positivus for the
+                                past year and have seen a significant increase
+                                in website traffic and leads as a result of
+                                their efforts. The team is professional,
+                                responsive, and truly cares about the success of
+                                our business. We highly recommend Positivus to
+                                any company looking to grow their online
+                                presence.
+                                sdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsfsdfsdfsdfdfsf"
+                            </p>
+                        </div>
+                        <div>John Smith Marketing Director at XYZ Corp</div>
+                    </Card> */}
+
+                    <Card bg="bg-dark" className="pt-20 pb-16 overflow-hidden">
+                        <div className="relative">
+                            {/* Кастомные стрелки */}
+                            <button
+                                onClick={() => swiperRef.current?.slidePrev()}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 z-10"
+                            >
+                                {/* <svg
+                                    className="w-6 h-6 text-white hover:text-green"
+                                    fill="#FFFFFF"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M15 19l-7-7 7-7"
+                                    />
+                                </svg> */}
+                                <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
+                            </button>
+
+                            <button
+                                onClick={() => swiperRef.current?.slideNext()}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 z-10"
+                            >
+                                <svg
+                                    className="w-6 h-6 text-white hover:text-green"
+                                    fill="#fff"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
+                            </button>
+                            <Swiper
+                                modules={[Navigation, Pagination]}
+                                onSwiper={(swiper) => {
+                                    swiperRef.current = swiper
+                                    setActiveIndex(swiper.realIndex)
+                                }}
+                                onSlideChange={(swiper) =>
+                                    setActiveIndex(swiper.realIndex)
+                                }
+                                spaceBetween={50}
+                                centeredSlides={true}
+                                slidesPerView={'auto'}
+                                navigation
+                                // pagination={{ clickable: true }}
+                                pagination={false}
+                                loop={true}
+                                className="text-white overflow-visible mb-32"
+                            >
+                                {reviews.map((t, index) => (
+                                    <SwiperSlide
+                                        key={index}
+                                        className="!w-[80%] sm:!w-[600px] transition-transform"
+                                    >
+                                        <div
+                                            className="relative p-13 border border-green rounded-[45px] 
+                                        text-center bg-dark h-60 "
+                                        >
+                                            <p className="text-lg leading-6 text-left">
+                                                {t.text}
+                                            </p>
+
+                                            {/* Хвостик снизу, центрирован */}
+                                            <div
+                                                className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 
+                                                w-4 h-4 bg-dark border-green border-l border-b -rotate-45"
+                                            ></div>
+                                        </div>
+
+                                        <div className="mt-12 ml-20 text-left">
+                                            <div className="text-green text-lg">
+                                                {t.name}
+                                            </div>
+                                            <div className="text-lg text-gray">
+                                                {t.role}
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                            {/* ⭐ Кастомная SVG пагинация */}
+                            <div className="w-[600px] mx-auto flex items-center justify-between">
+                                <button
+                                    onClick={() =>
+                                        swiperRef.current?.slidePrev()
+                                    }
+                                >
+                                    <ArrowLink
+                                        className="fill-gray opacity-50 hover:fill-white 
+                                        hover:opacity-100 cursor-pointer bg-dark rotate-180"
+                                    />
+                                </button>
+                                <div className="flex justify-center gap-2">
+                                    {reviews.map((_, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() =>
+                                                swiperRef.current?.slideToLoop(
+                                                    i
+                                                )
+                                            }
+                                            className="transition-transform hover:scale-110"
+                                        >
+                                            {i === activeIndex ? (
+                                                <svg
+                                                    className="fill-green"
+                                                    width="14.000000"
+                                                    height="14.000000"
+                                                    viewBox="0 0 14 14"
+                                                >
+                                                    <path
+                                                        id="Vector"
+                                                        d="M7 2.05L14 0L11.96 7L14 14L7 11.96L0 14L2.05 7L0 0L7 2.05Z"
+                                                        // fill="#FFFFFF"
+                                                    />
+                                                </svg>
+                                            ) : (
+                                                <svg
+                                                    className="fill-gray"
+                                                    width="14.000000"
+                                                    height="14.000000"
+                                                    viewBox="0 0 14 14"
+                                                >
+                                                    <path
+                                                        id="Vector"
+                                                        d="M7 2.05L14 0L11.96 7L14 14L7 11.96L0 14L2.05 7L0 0L7 2.05Z"
+                                                        // fill="#FFFFFF"
+                                                    />
+                                                </svg>
+                                            )}
+                                        </button>
+                                    ))}
+                                </div>
+                                <button
+                                    onClick={() =>
+                                        swiperRef.current?.slideNext()
+                                    }
+                                >
+                                    <ArrowLink
+                                        className="fill-gray opacity-50 hover:fill-white 
+                                        hover:opacity-100 cursor-pointer bg-dark "
+                                    />
+                                </button>
+                            </div>
+                        </div>
+                    </Card>
+                </Wrapper>
+            </div>
+            <div className="mt-[140px]">
+                <TagDescription>
+                    <div className="flex gap-12">
+                        <Tag tag="Contact Us" />
+                        <p className="w-xl text-lg leading-[23px]">
+                            Connect with Us: Let's Discuss Your Digital
+                            Marketing Needs
+                        </p>
+                    </div>
+                </TagDescription>
             </div>
         </>
     )

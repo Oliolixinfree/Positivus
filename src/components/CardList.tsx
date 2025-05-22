@@ -34,7 +34,7 @@ const CardList = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3.5 text-xl">
-                                    <ArrowLink className="fill-gray hover:fill-green cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-gray hover:fill-green cursor-pointer bg-dark -rotate-30" />
                                     Learn more
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ const CardList = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3.5 text-xl ">
-                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark -rotate-30" />
                                     Learn more
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ const CardList = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3.5 text-xl text-white">
-                                    <ArrowLink className="fill-dark hover:fill-green cursor-pointer bg-white" />
+                                    <ArrowLink className="fill-dark hover:fill-green cursor-pointer bg-white -rotate-30" />
                                     Learn more
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ const CardList = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3.5 text-xl">
-                                    <ArrowLink className="fill-gray hover:fill-green cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-gray hover:fill-green cursor-pointer bg-dark -rotate-30" />
                                     Learn more
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ const CardList = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3.5 text-xl ">
-                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
+                                    <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark -rotate-30" />
                                     Learn more
                                 </div>
                             </div>
@@ -189,7 +189,7 @@ const CardList = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3.5 text-xl text-white">
-                                    <ArrowLink className="fill-dark hover:fill-green cursor-pointer bg-white" />
+                                    <ArrowLink className="fill-dark hover:fill-green cursor-pointer bg-white -rotate-30" />
                                     Learn more
                                 </div>
                             </div>

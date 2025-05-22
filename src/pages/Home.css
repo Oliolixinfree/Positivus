@@ -1,0 +1,30 @@
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+@import 'swiper/css';
+@import 'swiper/css/effect-coverflow';
+
+.swiper-slide {
+    /* margin-right: 0 !important; */
+    /* width: 600px !important; */
+    /* background: #882525; */
+}
+.swiper-slide-active {
+    /* width: fit-content !important; */
+    /* background: #882525; */
+}
+
+/* .swiper-button-prev {
+    width: 20px;
+    height: 20px;
+    fill: yellow;
+    background-color: yellow;
+    color: yellow;
+}
+
+.swiper-button-next {
+    width: 20px;
+    height: 20px;
+    fill: yellow;
+    background-color: yellow;
+    color: yellow;
+} */

@@ -51,7 +51,7 @@ export const EmployeesCard: React.FC<IEmployeesCard> = ({
                     <div className="flex justify-end">
                         <div
                             className="flex items-center justify-center cursor-pointer bg-dark rounded-full 
-                                        w-9 h-9 hover:fill-green transition-all duration-300"
+                                        w-9 h-9 fill-green hover:fill-gray transition-all duration-300"
                         >
                             <svg
                                 width="17.000000"
@@ -61,7 +61,7 @@ export const EmployeesCard: React.FC<IEmployeesCard> = ({
                                 <path
                                     id="linkedin"
                                     d="M2.06 4.09C0.9 4.09 0 3.18 0 2.07C0 0.95 0.9 0 2.06 0C3.17 0 4.07 0.95 4.07 2.07C4.07 3.18 3.17 4.09 2.06 4.09ZM13.45 17L17 17L17 10.78C17 7.75 16.31 5.36 12.76 5.36C11.06 5.36 9.9 6.32 9.42 7.22L9.37 7.22L9.37 5.68L6.03 5.68L6.03 17L9.53 17L9.53 11.42C9.53 9.93 9.79 8.5 11.65 8.5C13.45 8.5 13.45 10.2 13.45 11.47L13.45 17ZM3.81 17L0.31 17L0.31 5.68L3.81 5.68L3.81 17Z"
-                                    fill="#B9FF66"
+                                    // fill="#B9FF66"
                                 />
                             </svg>
                         </div>
