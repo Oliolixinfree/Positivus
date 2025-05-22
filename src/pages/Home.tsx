@@ -11,10 +11,9 @@ import Tag from '../components/UI/Tag'
 import ArrowLink from '../components/UI/ArrowLink'
 import { WorkingProcessCard } from '../components/WorkingProcessCard'
 import EmployeesCard from '../components/EmployeesCard'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
-import './Home.css'
 import { useRef, useState } from 'react'
+import ReviewsCarousel from '../components/ReviewsCarousel'
+import ContactForm from '../components/ContactForm'
 
 const cards = [
     {
@@ -145,9 +144,6 @@ const reviews = [
 ]
 
 const Home = () => {
-    const swiperRef = useRef<any>(null)
-    const [activeIndex, setActiveIndex] = useState<number>(0)
-
     return (
         <>
             <Header />
@@ -334,184 +330,7 @@ const Home = () => {
                 </TagDescription>
             </div>
             <div className="mt-[80px]">
-                <Wrapper>
-                    {/* <Card bg="bg-dark" className="pt-20 pb-16">
-                        <div
-                            className="flex justify-self-center w-fit h-fit  text-white 
-                                p-[52px] bg-[url(./assets/images/Bubble.svg)] bg-clip-border bg-no-repeat"
-                        >
-                            <p className="text-lg w-[500px]">
-                                "We have been working with Positivus for the
-                                past year and have seen a significant increase
-                                in website traffic and leads as a result of
-                                their efforts. The team is professional,
-                                responsive, and truly cares about the success of
-                                our business. We highly recommend Positivus to
-                                any company looking to grow their online
-                                presence.
-                                sdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsfsdfsdfsdfdfsf"
-                            </p>
-                        </div>
-                        <div>John Smith Marketing Director at XYZ Corp</div>
-                    </Card> */}
-
-                    <Card bg="bg-dark" className="pt-20 pb-16 overflow-hidden">
-                        <div className="relative">
-                            {/* Кастомные стрелки */}
-                            <button
-                                onClick={() => swiperRef.current?.slidePrev()}
-                                className="absolute left-2 top-1/2 -translate-y-1/2 z-10"
-                            >
-                                {/* <svg
-                                    className="w-6 h-6 text-white hover:text-green"
-                                    fill="#FFFFFF"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M15 19l-7-7 7-7"
-                                    />
-                                </svg> */}
-                                <ArrowLink className="fill-green hover:fill-gray cursor-pointer bg-dark" />
-                            </button>
-
-                            <button
-                                onClick={() => swiperRef.current?.slideNext()}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 z-10"
-                            >
-                                <svg
-                                    className="w-6 h-6 text-white hover:text-green"
-                                    fill="#fff"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M9 5l7 7-7 7"
-                                    />
-                                </svg>
-                            </button>
-                            <Swiper
-                                modules={[Navigation, Pagination]}
-                                onSwiper={(swiper) => {
-                                    swiperRef.current = swiper
-                                    setActiveIndex(swiper.realIndex)
-                                }}
-                                onSlideChange={(swiper) =>
-                                    setActiveIndex(swiper.realIndex)
-                                }
-                                spaceBetween={50}
-                                centeredSlides={true}
-                                slidesPerView={'auto'}
-                                navigation
-                                // pagination={{ clickable: true }}
-                                pagination={false}
-                                loop={true}
-                                className="text-white overflow-visible mb-32"
-                            >
-                                {reviews.map((t, index) => (
-                                    <SwiperSlide
-                                        key={index}
-                                        className="!w-[80%] sm:!w-[600px] transition-transform"
-                                    >
-                                        <div
-                                            className="relative p-13 border border-green rounded-[45px] 
-                                        text-center bg-dark h-60 "
-                                        >
-                                            <p className="text-lg leading-6 text-left">
-                                                {t.text}
-                                            </p>
-
-                                            {/* Хвостик снизу, центрирован */}
-                                            <div
-                                                className="absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 
-                                                w-4 h-4 bg-dark border-green border-l border-b -rotate-45"
-                                            ></div>
-                                        </div>
-
-                                        <div className="mt-12 ml-20 text-left">
-                                            <div className="text-green text-lg">
-                                                {t.name}
-                                            </div>
-                                            <div className="text-lg text-gray">
-                                                {t.role}
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                            {/* ⭐ Кастомная SVG пагинация */}
-                            <div className="w-[600px] mx-auto flex items-center justify-between">
-                                <button
-                                    onClick={() =>
-                                        swiperRef.current?.slidePrev()
-                                    }
-                                >
-                                    <ArrowLink
-                                        className="fill-gray opacity-50 hover:fill-white 
-                                        hover:opacity-100 cursor-pointer bg-dark rotate-180"
-                                    />
-                                </button>
-                                <div className="flex justify-center gap-2">
-                                    {reviews.map((_, i) => (
-                                        <button
-                                            key={i}
-                                            onClick={() =>
-                                                swiperRef.current?.slideToLoop(
-                                                    i
-                                                )
-                                            }
-                                            className="transition-transform hover:scale-110"
-                                        >
-                                            {i === activeIndex ? (
-                                                <svg
-                                                    className="fill-green"
-                                                    width="14.000000"
-                                                    height="14.000000"
-                                                    viewBox="0 0 14 14"
-                                                >
-                                                    <path
-                                                        id="Vector"
-                                                        d="M7 2.05L14 0L11.96 7L14 14L7 11.96L0 14L2.05 7L0 0L7 2.05Z"
-                                                        // fill="#FFFFFF"
-                                                    />
-                                                </svg>
-                                            ) : (
-                                                <svg
-                                                    className="fill-gray"
-                                                    width="14.000000"
-                                                    height="14.000000"
-                                                    viewBox="0 0 14 14"
-                                                >
-                                                    <path
-                                                        id="Vector"
-                                                        d="M7 2.05L14 0L11.96 7L14 14L7 11.96L0 14L2.05 7L0 0L7 2.05Z"
-                                                        // fill="#FFFFFF"
-                                                    />
-                                                </svg>
-                                            )}
-                                        </button>
-                                    ))}
-                                </div>
-                                <button
-                                    onClick={() =>
-                                        swiperRef.current?.slideNext()
-                                    }
-                                >
-                                    <ArrowLink
-                                        className="fill-gray opacity-50 hover:fill-white 
-                                        hover:opacity-100 cursor-pointer bg-dark "
-                                    />
-                                </button>
-                            </div>
-                        </div>
-                    </Card>
-                </Wrapper>
+                <ReviewsCarousel reviews={reviews} />
             </div>
             <div className="mt-[140px]">
                 <TagDescription>
@@ -523,6 +342,9 @@ const Home = () => {
                         </p>
                     </div>
                 </TagDescription>
+            </div>
+            <div className="mt-[80px]">
+                <ContactForm />
             </div>
         </>
     )
