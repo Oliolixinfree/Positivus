@@ -338,6 +338,7 @@ const Home = () => {
                         <Tag tag="Contact Us" />
                         <p className="w-xl text-lg leading-[23px]">
                             Connect with Us: Let's Discuss Your Digital
+                            <br />
                             Marketing Needs
                         </p>
                     </div>
